@@ -2,23 +2,17 @@ import FusionCharts from "fusioncharts";
 import charts from "fusioncharts/fusioncharts.charts";
 import ReactFusioncharts from "react-fusioncharts";
 
-interface ChartType {
-    data: Array<any>;
-    setIsShowChart: any;
-}
-function Chart({ data, setIsShowChart }: ChartType) {
-    let point = 0;
+function Chart({ data, setIsShowChart }) {
     const newData = data.map((item) => {
-        point += item.pts;
         return {
-            label: `${item.date} <br> ${item.grandPrix}`,
-            value: `${point}`,
+            label: `${item.team}`,
+            value: `${item.pts}`,
         };
     });
     charts(FusionCharts);
     const dataSource = {
         chart: {
-            caption: `Driver Standings: ${data[0].driver}`,
+            caption: `Constructor Standings`,
             yaxisname: "Point (pts)",
             subcaption: `[${data[0].year}]`,
             numbersuffix: " pts",
@@ -33,15 +27,15 @@ function Chart({ data, setIsShowChart }: ChartType) {
             className="fixed top-0 left-0 bottom-0 right-0 flex justify-center items-center bg-[#000] bg-opacity-80"
             onClick={() => setIsShowChart(false)}
         >
-            <div className="w-[70%] h-[70%]" onClick={(e: any) => e.stopPropagation()}>
+            <div className="w-[70%] h-[70%]" onClick={(e) => e.stopPropagation()}>
                 <ReactFusioncharts
-                    type="line"
+                    type="column3d"
                     dataFormat="JSON"
                     width="100%"
                     height="100%"
                     dataSource={dataSource}
                     className="w-full h-full"
-                    onClick={(e: any) => e.stopPropagation()}
+                    onClick={(e) => e.stopPropagation()}
                 />
             </div>
         </div>

@@ -6,7 +6,7 @@ import { LayerMaterial, Color, Depth } from "lamina";
 
 function LightFormers({ positions = [2, 0, 2, 0, 2, 0, 2, 0] }) {
     const group = useRef<any>();
-    useFrame((state, delta) => (group.current.position.z += delta * 10) > 20 && (group.current.position.z = -60));
+    useFrame((_state , delta) => (group.current.position.z += delta * 10) > 20 && (group.current.position.z = -60));
     return (
         <>
             {/* Ceiling */}
