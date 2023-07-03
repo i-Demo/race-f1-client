@@ -1,6 +1,6 @@
   <h1 align="center"><b>RACE F1</b></h1>
 
-  - ### Live demo: https://movie-298.netlify.app/
+  - ### Live demo: https://racef1.netlify.app/
   - ### API: https://race-f1-server.vercel.app/api/
   
   - ### Mô tả
